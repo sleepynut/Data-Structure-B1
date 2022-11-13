@@ -9,6 +9,7 @@ func FindLargestRegion(m [][]int) int {
 		for j := 0; j < len(m[0]); j++ {
 			tmp := bfsArea(m, i, j)
 			if max < tmp {
+				fmt.Printf("(%d,%d): %d\n", i, j, max)
 				max = tmp
 			}
 		}
@@ -18,48 +19,64 @@ func FindLargestRegion(m [][]int) int {
 }
 
 func bfsArea(m [][]int, i int, j int) int {
+	type Coor struct {
+		i    int
+		j    int
+		dist int
+	}
+
 	visited := make(map[string]bool)
 
-	qi := []int{i}
-	qj := []int{j}
+	q := []Coor{
+		{i: i, j: j, dist: 1},
+	}
 
 	// moving direction from (i,j)
-	di := []int{-1, -1, -1, 0, 0, 1, 1, 1}
-	dj := []int{-1, 0, 1, -1, 1, -1, 0, 1}
+	// up, left, right, down
+	di := []int{-1, 0, 0, 1}
+	dj := []int{0, -1, 1, 0}
 
-	dist := 0
-	for len(qi) > 0 && len(qj) > 0 {
-		level := len(qi)
+	max := 0
+	for len(q) > 0 {
+		level := len(q)
 
 		for it := 0; it < level; it++ {
 
-			i := qi[0]
-			j := qj[0]
+			i := q[0].i
+			j := q[0].j
+			dist := q[0].dist
 
 			// pop queue
-			qi := qi[1:]
-			qj := qj[1:]
+			q = q[1:]
+
+			// mark current position visited
+			coor := fmt.Sprintf("%d,%d", i, j)
+			if visited[coor] {
+				continue
+			}
+
+			visited[coor] = true
+			if dist > max {
+				max = dist
+			}
 
 			// traverse all 8 directions
-			for k := 0; k < 8; k++ {
+			for k := 0; k < 4; k++ {
 				nxtI := i + di[k]
 				nxtJ := j + dj[k]
 
-				coor := fmt.Sprintf("%d,%d", nxtI, nxtJ)
+				coor = fmt.Sprintf("%d,%d", nxtI, nxtJ)
 
 				if nxtI >= 0 && nxtI < len(m) &&
 					nxtJ >= 0 && nxtJ < len(m[0]) &&
 					m[nxtI][nxtJ] == 1 && !visited[coor] {
-					qi = append(qi, nxtI)
-					qj = append(qj, nxtJ)
+					q = append(q, Coor{i: nxtI, j: nxtJ, dist: dist + 1})
 
-					// marked as visited
-					visited[coor] = true
 				}
 			}
+			// fmt.Println("end")
 		}
 
-		dist++
 	}
-	return dist
+	return max
 }
