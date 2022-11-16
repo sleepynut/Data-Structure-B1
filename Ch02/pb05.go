@@ -9,7 +9,7 @@ func FindLargestRegion(m [][]int) int {
 		for j := 0; j < len(m[0]); j++ {
 			tmp := bfsArea(m, i, j)
 			if max < tmp {
-				fmt.Printf("(%d,%d): %d\n", i, j, max)
+				fmt.Printf("(%d,%d): %d\n", i, j, tmp)
 				max = tmp
 			}
 		}
@@ -23,6 +23,10 @@ func bfsArea(m [][]int, i int, j int) int {
 		i    int
 		j    int
 		dist int
+	}
+
+	if m[i][j] == 0 {
+		return 0
 	}
 
 	visited := make(map[string]bool)
@@ -79,4 +83,45 @@ func bfsArea(m [][]int, i int, j int) int {
 
 	}
 	return max
+}
+
+func FindLargestAreaDFS(m [][]int) int {
+	max := 0
+
+	for i := 0; i < len(m); i++ {
+		for j := 0; j < len(m[0]); j++ {
+			visited := make(map[string]bool)
+			tmp := dfsArea(m, i, j, visited)
+			if max < tmp {
+				fmt.Printf("DFS: (%d,%d): %d\n", i, j, tmp)
+				max = tmp
+			}
+		}
+	}
+
+	return max
+}
+
+func dfsArea(m [][]int, i int, j int, visited map[string]bool) int {
+	coor := fmt.Sprintf("%d,%d", i, j)
+
+	if i < 0 || i >= len(m) || j < 0 || j >= len(m[0]) || visited[coor] || m[i][j] == 0 {
+		return 0
+	}
+
+	// mark i,j as visited
+	visited[coor] = true
+
+	// up, right, down, left
+	di := []int{-1, 0, 1, 0}
+	dj := []int{0, 1, 0, -1}
+	max := 0
+
+	for k := 0; k < len(di); k++ {
+		tmp := dfsArea(m, i+di[k], j+dj[k], visited)
+		if tmp > max {
+			max = tmp
+		}
+	}
+	return 1 + max
 }
