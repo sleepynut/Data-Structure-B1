@@ -7,7 +7,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func genLinkList(n int) *ListNode {
+func GenLinkList(n int) *ListNode {
 	if n <= 0 {
 		return nil
 	}
@@ -23,7 +23,7 @@ func genLinkList(n int) *ListNode {
 	return temp[0]
 }
 
-func genLinkLisFromValues(nums []int) *ListNode {
+func GenLinkLisFromValues(nums []int) *ListNode {
 	n := len(nums)
 	if n == 0 {
 		return nil
@@ -43,7 +43,7 @@ func genLinkLisFromValues(nums []int) *ListNode {
 	return temp[0]
 }
 
-func printList(head *ListNode) string {
+func PrintList(head *ListNode) string {
 	out := ""
 	for head != nil {
 		out += strconv.Itoa(head.Val) + " "

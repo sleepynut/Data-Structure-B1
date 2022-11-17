@@ -6,12 +6,12 @@ import (
 
 func TestReverseList(t *testing.T) {
 	size := 5
-	head := genLinkList(size)
+	head := GenLinkList(size)
 
 	rev := reverseList(head)
 
 	expect := "4 3 2 1 0 "
-	get := printList(rev)
+	get := PrintList(rev)
 
 	if get != expect {
 		t.Errorf("Expect: %s BUT get: %s\n", expect, get)

@@ -1,6 +1,6 @@
 package Ch03
 
-func splitListToTwo(head *ListNode) (*ListNode, *ListNode) {
+func SplitListToTwo(head *ListNode) (*ListNode, *ListNode) {
 	if head == nil {
 		return nil, nil
 	}
@@ -13,7 +13,7 @@ func splitListToTwo(head *ListNode) (*ListNode, *ListNode) {
 		prev = slow
 		slow = slow.Next
 		fast = fast.Next
-		if fast.Next != nil {
+		if fast != nil {
 			fast = fast.Next
 		}
 	}
