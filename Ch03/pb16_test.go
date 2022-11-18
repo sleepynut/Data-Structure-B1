@@ -6,7 +6,7 @@ import (
 
 func TestReverseList(t *testing.T) {
 	size := 5
-	head := GenLinkList(size)
+	head, _ := GenLinkList(size)
 
 	rev := reverseList(head)
 

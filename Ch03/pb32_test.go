@@ -4,9 +4,9 @@ import "testing"
 
 func TestMergePairListXxx(t *testing.T) {
 	cases := 3
-	c2 := GenLinkList(3)
-	c1 := GenLinkList(0)
-	c3 := GenLinkList(6)
+	c2, _ := GenLinkList(3)
+	c1, _ := GenLinkList(0)
+	c3, _ := GenLinkList(6)
 
 	expected := []string{"", "1 0 2 ", "1 0 3 2 5 4 "}
 	heads := []*ListNode{c1, c2, c3}

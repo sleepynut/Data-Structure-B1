@@ -7,9 +7,9 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func GenLinkList(n int) *ListNode {
+func GenLinkList(n int) (*ListNode, *ListNode) {
 	if n <= 0 {
-		return nil
+		return nil, nil
 	}
 
 	temp := make([]*ListNode, n)
@@ -20,7 +20,17 @@ func GenLinkList(n int) *ListNode {
 		temp[i].Next = temp[i+1]
 	}
 
-	return temp[0]
+	return temp[0], temp[n-1]
+}
+
+func GenCircularList(n int) *ListNode {
+	if n <= 0 {
+		return nil
+	}
+
+	head, tail := GenLinkList(n + 1)
+	tail.Next = head.Next
+	return head.Next
 }
 
 func GenLinkLisFromValues(nums []int) *ListNode {

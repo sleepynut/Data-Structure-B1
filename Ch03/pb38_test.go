@@ -3,7 +3,7 @@ package Ch03
 import "testing"
 
 func TestReverseKthFromList(t *testing.T) {
-	head := GenLinkList(10)
+	head, _ := GenLinkList(10)
 
 	k := 3
 	rev := ReverseKthFromList(head, k)
@@ -28,7 +28,7 @@ func TestReverseKthFromList_nil(t *testing.T) {
 
 func TestReverseKthFromList_largeK(t *testing.T) {
 	k := 10
-	head := GenLinkList(5)
+	head, _ := GenLinkList(5)
 	rev := ReverseKthFromList(head, k)
 	x := "0 1 2 3 4 "
 	got := PrintList(rev)
@@ -40,7 +40,7 @@ func TestReverseKthFromList_largeK(t *testing.T) {
 
 func TestReverseKthFromList_keq1(t *testing.T) {
 	k := 1
-	head := GenLinkList(5)
+	head, _ := GenLinkList(5)
 	rev := ReverseKthFromList(head, k)
 	x := "0 1 2 3 4 "
 	got := PrintList(rev)

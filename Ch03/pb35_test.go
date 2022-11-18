@@ -6,7 +6,7 @@ import (
 
 func TestSplitListToTwo(t *testing.T) {
 	size := 10
-	ori := GenLinkList(size)
+	ori, _ := GenLinkList(size)
 
 	h1, h2 := SplitListToTwo(ori)
 
@@ -24,7 +24,7 @@ func TestSplitListToTwo(t *testing.T) {
 
 func TestSplitListToTwoEdgeNil(t *testing.T) {
 	size := 0
-	ori := GenLinkList(size)
+	ori, _ := GenLinkList(size)
 
 	h1, h2 := SplitListToTwo(ori)
 
@@ -35,7 +35,7 @@ func TestSplitListToTwoEdgeNil(t *testing.T) {
 
 func TestSplitListToTwoEdgeOne(t *testing.T) {
 	size := 1
-	ori := GenLinkList(size)
+	ori, _ := GenLinkList(size)
 
 	h1, h2 := SplitListToTwo(ori)
 
