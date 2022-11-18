@@ -17,12 +17,10 @@ func CloneRandList(head *RandListNode) *RandListNode {
 	pair := make(map[*RandListNode]*RandListNode)
 
 	ori := head
-	r2 := []*RandListNode{}
 	for head != nil {
-		// r1 = append(r1, head)
 
 		new := RandListNode{Val: head.Val}
-		r2 = append(r2, &new)
+
 		pair[head] = &new
 		head = head.Next
 	}
@@ -36,7 +34,7 @@ func CloneRandList(head *RandListNode) *RandListNode {
 
 		head = head.Next
 	}
-	return r2[0]
+	return pair[ori]
 }
 
 func GenLinkList(n int) (*ListNode, *ListNode) {
