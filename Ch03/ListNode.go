@@ -16,10 +16,10 @@ type RandListNode struct {
 func CloneRandList(head *RandListNode) *RandListNode {
 	pair := make(map[*RandListNode]*RandListNode)
 
-	r1 := []*RandListNode{}
+	ori := head
 	r2 := []*RandListNode{}
 	for head != nil {
-		r1 = append(r1, head)
+		// r1 = append(r1, head)
 
 		new := RandListNode{Val: head.Val}
 		r2 = append(r2, &new)
@@ -27,9 +27,14 @@ func CloneRandList(head *RandListNode) *RandListNode {
 		head = head.Next
 	}
 
-	for i := 0; i < len(r1); i++ {
-		r2[i].Next = pair[r1[i].Next]
-		r2[i].Rand = pair[r1[i].Rand]
+	head = ori
+	for head != nil {
+
+		clone := pair[head]
+		clone.Next = pair[head.Next]
+		clone.Rand = pair[head.Rand]
+
+		head = head.Next
 	}
 	return r2[0]
 }
