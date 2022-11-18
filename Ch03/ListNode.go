@@ -23,14 +23,17 @@ func GenLinkList(n int) (*ListNode, *ListNode) {
 	return temp[0], temp[n-1]
 }
 
-func GenCircularList(n int) *ListNode {
+// Provide a circle list of 1,2,3,....,n,1
+func GenCircularList(n int) (*ListNode, *ListNode) {
 	if n <= 0 {
-		return nil
+		return nil, nil
 	}
 
 	head, tail := GenLinkList(n + 1)
 	tail.Next = head.Next
-	return head.Next
+
+	// return head, tail of circular list
+	return head.Next, tail
 }
 
 func GenLinkLisFromValues(nums []int) *ListNode {
