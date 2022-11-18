@@ -13,6 +13,27 @@ type RandListNode struct {
 	Rand *RandListNode
 }
 
+func CloneRandList(head *RandListNode) *RandListNode {
+	pair := make(map[*RandListNode]*RandListNode)
+
+	r1 := []*RandListNode{}
+	r2 := []*RandListNode{}
+	for head != nil {
+		r1 = append(r1, head)
+
+		new := RandListNode{Val: head.Val}
+		r2 = append(r2, &new)
+		pair[head] = &new
+		head = head.Next
+	}
+
+	for i := 0; i < len(r1); i++ {
+		r2[i].Next = pair[r1[i].Next]
+		r2[i].Rand = pair[r1[i].Rand]
+	}
+	return r2[0]
+}
+
 func GenLinkList(n int) (*ListNode, *ListNode) {
 	if n <= 0 {
 		return nil, nil
@@ -29,25 +50,25 @@ func GenLinkList(n int) (*ListNode, *ListNode) {
 	return temp[0], temp[n-1]
 }
 
-func GenRandLinkList(n int, rm map[int]int) (*ListNode, *ListNode) {
+func GenRandLinkList(n int, rm map[int]int) (*RandListNode, *RandListNode) {
 	if n <= 0 {
 		return nil, nil
 	}
 
-	temp := make([]*ListNode, n)
+	temp := make([]*RandListNode, n)
 	for i := 0; i < n; i++ {
-		temp[i] = &ListNode{Val: i}
+		temp[i] = &RandListNode{Val: i}
 	}
 	for i := 0; i < n-1; i++ {
 		temp[i].Next = temp[i+1]
 	}
 
 	for k, v := range rm {
-		if k >= v || k < 0 || v < 0 || k >= n || v >= n {
+		if k < 0 || v < 0 || k >= n || v >= n {
 			return nil, nil
 		}
 
-		temp[k].Next = temp[v]
+		temp[k].Rand = temp[v]
 	}
 
 	return temp[0], temp[n-1]
@@ -95,13 +116,16 @@ func PrintList(head *ListNode) string {
 	return out
 }
 
-func PrintRandList(head *RandListNode) string {
-	if head == nil {
+func PrintRandList(head *RandListNode, visited map[*RandListNode]bool) string {
+	if head == nil || visited[head] {
 		return ""
 	}
 
+	// mark as visited
+	visited[head] = true
+
 	s := strconv.Itoa(head.Val) + " "
-	s += PrintRandList(head.Rand)
-	s += PrintRandList(head.Next)
+	s += PrintRandList(head.Rand, visited)
+	s += PrintRandList(head.Next, visited)
 	return s
 }
