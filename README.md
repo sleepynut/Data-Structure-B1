@@ -14,19 +14,21 @@ The general purpose is to code along example and practice exercises from the boo
 ### CH 03 -- Link List
 
 - Problwm: 16 \
-  Reverse the singly link list
-
+   Reverse the singly link list
 - Problem: 31 \
-  Merge Two sorted lists
-
+   Merge Two sorted lists
 - Problem: 32 \
-  Reverse the linked list in pair
-
+   Reverse the linked list in pair
 - Problem: 35 \
-  Split list into two and the first split list should be at most one size longer than the second one
-
+   Split list into two and the first split list should be at most one size longer than the second one
 - Problem: 38
   Reverse every kth elements from the list.\
-  For examples
+   For examples
   1. given a list of 0,1,2,3,4,5. If k=2,the result list would be of 1,0,3,2,5,4.
   1. given a list of 0,1,2,3,4,5. If k=3,the result list would be of 2,1,0,5,4,3.
+- Problem: 40 \
+   Josephus circle
+- Problem: 41 \
+  Clone random link list,where random link list is defined as a normal link list with next ptr plus rand ptr which randomly point to additional node.
+- Problem: 43 \
+  Given a link list and a pointer of a node to be deleted. Find a way to remove such node
