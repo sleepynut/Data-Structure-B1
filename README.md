@@ -34,3 +34,5 @@ The general purpose is to code along example and practice exercises from the boo
   Given a link list and a pointer of a node to be deleted. Find a way to remove such node
 - Problem: 44 \
   Split a list of mix numbers of even and odd so that all the even numbers go to the beginning of the list
+- Problen: 46 \
+  Fomd Modular node
