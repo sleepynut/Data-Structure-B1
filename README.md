@@ -38,3 +38,5 @@ The general purpose is to code along example and practice exercises from the boo
   Fomd Modular node
 - Problem: 47 \
   Find kth node from last
+- Problem: 49 \
+  Find a node from given list where its position is sqrt(n);n is a number of nodes in such list
