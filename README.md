@@ -32,3 +32,5 @@ The general purpose is to code along example and practice exercises from the boo
   Clone random link list,where random link list is defined as a normal link list with next ptr plus rand ptr which randomly point to additional node.
 - Problem: 43 \
   Given a link list and a pointer of a node to be deleted. Find a way to remove such node
+- Problem: 44 \
+  Split a list of mix numbers of even and odd so that all the even numbers go to the beginning of the list
