@@ -36,3 +36,5 @@ The general purpose is to code along example and practice exercises from the boo
   Split a list of mix numbers of even and odd so that all the even numbers go to the beginning of the list
 - Problen: 46 \
   Fomd Modular node
+- Problem: 47 \
+  Find kth node from last
