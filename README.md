@@ -40,3 +40,5 @@ The general purpose is to code along example and practice exercises from the boo
   Find kth node from last
 - Problem: 49 \
   Find a node from given list where its position is sqrt(n);n is a number of nodes in such list
+- Problem: 53 \
+  Add numbers stored in 2 lists where each node represents the digit. The most significat bit will be in left-to-right alignment. The implementation should also account for the carry-on from each digit summation.
