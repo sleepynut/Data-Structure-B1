@@ -49,3 +49,13 @@ func TestArrangeNodes_one(t *testing.T) {
 	}
 
 }
+
+func TestArrangeNodes_nil(t *testing.T) {
+
+	got := rearrangeNodes(nil)
+
+	if got != nil {
+		t.Errorf("Expect nil")
+	}
+
+}
