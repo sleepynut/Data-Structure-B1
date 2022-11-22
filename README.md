@@ -42,3 +42,9 @@ The general purpose is to code along example and practice exercises from the boo
   Find a node from given list where its position is sqrt(n);n is a number of nodes in such list
 - Problem: 53 \
   Add numbers stored in 2 lists where each node represents the digit. The most significat bit will be in left-to-right alignment. The implementation should also account for the carry-on from each digit summation.
+- Problem: 55 \
+  Rearrange the list such in the following order:
+  - Even number of nodes: 1,2,3,4,5,6 \
+    Result: 1,6,2,5,3,4
+  - Odd number of nodes: 1,2,3 \
+    Result: 1,3,2
