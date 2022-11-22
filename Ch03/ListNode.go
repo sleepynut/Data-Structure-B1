@@ -132,3 +132,16 @@ func PrintRandList(head *RandListNode, visited map[*RandListNode]bool) string {
 	s += PrintRandList(head.Next, visited)
 	return s
 }
+
+func GetLength(h *ListNode) int {
+	if h == nil {
+		return 0
+	}
+	count := 0
+	for h != nil {
+		count++
+		h = h.Next
+	}
+
+	return count
+}
