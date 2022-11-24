@@ -48,3 +48,5 @@ The general purpose is to code along example and practice exercises from the boo
     Result: 1,6,2,5,3,4
   - Odd number of nodes: 1,2,3 \
     Result: 1,3,2
+- Problem: 56 \
+  Given 2 sorted arrays. Return a new list of duplicate values found in both the lists
