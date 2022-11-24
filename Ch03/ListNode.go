@@ -145,3 +145,13 @@ func GetLength(h *ListNode) int {
 
 	return count
 }
+
+func GetTail(h *ListNode) *ListNode {
+
+	for h != nil && h.Next != nil {
+
+		h = h.Next
+	}
+
+	return h
+}

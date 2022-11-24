@@ -50,3 +50,5 @@ The general purpose is to code along example and practice exercises from the boo
     Result: 1,3,2
 - Problem: 56 \
   Given 2 sorted arrays. Return a new list of duplicate values found in both the lists
+- Problem: 58 \
+  Given a link list and a number(x). Rearrange this list in a way that all the node whose values are less than x are in the front, while the order is preserved. Also, all the nodes whose values are greater than or equal to x will be from last while preserving the order.
