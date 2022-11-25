@@ -4,7 +4,6 @@ func removeDupFromSortedList(h *ListNode) *ListNode {
 	dummy := &ListNode{Val: -1}
 	dh := dummy
 
-	// var prev *ListNode
 	var tmp *ListNode
 	for h != nil {
 		tmp = h.Next
@@ -18,11 +17,6 @@ func removeDupFromSortedList(h *ListNode) *ListNode {
 			dh = dh.Next
 		}
 
-		// if prev != nil {
-		// 	prev.Next = nil
-
-		// }
-		// prev = h
 		h = tmp
 	}
 
